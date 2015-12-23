@@ -14,7 +14,25 @@ public class AndroidMain {
 		fm = new FileManagement();
 		cc = new CodeCheck();
 		
-		checkCode();
+		//checkCode();
+		commitRepo();
+	}
+	
+	public static void commitRepo(){
+		List<String> CVELinks;
+		String cve;
+		String link;
+		String androidPath = "C:\\Users\\Gustavo\\Desktop\\Pesquisa\\Analise\\Android\\";
+		
+		CVELinks = fm.readFile( androidPath + "links.txt");
+		for(String cl : CVELinks){
+			cve = cl.split("	")[0];
+			link = cl.split("	")[1];
+			
+			System.out.println(cve);
+			System.out.println("\tRepo: " + link.split("(/\\+/)")[0]);
+			System.out.println("\tCommit: " + link.split("(/\\+/)")[1].replace("%5E!/", "") + "\n");
+		}
 	}
 	
 	public static void checkCode(){

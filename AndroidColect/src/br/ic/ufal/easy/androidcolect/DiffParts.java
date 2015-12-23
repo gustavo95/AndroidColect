@@ -4,18 +4,18 @@ public class DiffParts {
 	
 	private String path;
 	private int lineBegin;
-	private int linEnd;
+	private int lineEnd;
 	
 	public DiffParts() {
 		this.path = "";
 		this.lineBegin = 0;
-		this.linEnd = 0;
+		this.lineEnd = 0;
 	}
 	
-	public DiffParts(String path, int lineBegin, int linEnd) {
+	public DiffParts(String path, int lineBegin, int lineEnd) {
 		this.path = path;
 		this.lineBegin = lineBegin;
-		this.linEnd = linEnd;
+		this.lineEnd = lineEnd;
 	}
 
 	public String getPath() {
@@ -34,12 +34,12 @@ public class DiffParts {
 		this.lineBegin = lineBegin;
 	}
 
-	public int getLinEnd() {
-		return linEnd;
+	public int getLineEnd() {
+		return lineEnd;
 	}
 
-	public void setLinEnd(int linEnd) {
-		this.linEnd = linEnd;
+	public void setLineEnd(int lineEnd) {
+		this.lineEnd = lineEnd;
 	}
 	
 	

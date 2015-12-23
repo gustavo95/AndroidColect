@@ -20,7 +20,7 @@ public class CodeCheck {
 			matcher = pattern.matcher(line);
             if(matcher.find()) {
             	if(dp != null){
-            		dp.setLinEnd(i - 1);
+            		dp.setLineEnd(i - 1);
             		parts.add(dp);
             	}
             	String result = matcher.group();
@@ -28,11 +28,28 @@ public class CodeCheck {
             }
 		}
 		if(dp != null){
-    		dp.setLinEnd(diff.size() - 1);
+    		dp.setLineEnd(diff.size() - 1);
     		parts.add(dp);
     	}
 		
 		return parts;
+	}
+	
+	public void codeComparison(List<String> diff, List<String> before, List<String> after, DiffParts part){
+		String diffLine = "";
+		
+		Pattern pattern = Pattern.compile("(@@ .* @@.*)");
+		Matcher matcher;
+		
+		if(before != null && after == null){
+			System.out.println(part.getPath() + "was removed from old version");
+		}else if(before == null && after != null){
+			System.out.println(part.getPath() + "was add to new version");
+		}else{
+			for(int i = part.getLineBegin(); i <= part.getLineEnd(); i++){
+				diffLine = diff.get(i);
+			}
+		}
 	}
 
 }
